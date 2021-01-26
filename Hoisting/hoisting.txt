@@ -1,0 +1,59 @@
+Microsoft Windows [Version 10.0.19041.746]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node -v
+v14.15.4
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+undefined
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+world
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+magnet
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+super cool
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+super cool
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+chicken
+half-chicken
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+half-chicken
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+ chicken
+half-chicken
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+C:\Users\HP\Desktop\Axsos Academy\MREN\Hoisting.js:52
+mean();
+^
+
+TypeError: mean is not a function
+    at Object.<anonymous> (C:\Users\HP\Desktop\Axsos Academy\MREN\Hoisting.js:52:1)
+←[90m    at Module._compile (internal/modules/cjs/loader.js:1063:30)←[39m
+←[90m    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)←[39m
+←[90m    at Module.load (internal/modules/cjs/loader.js:928:32)←[39m
+←[90m    at Function.Module._load (internal/modules/cjs/loader.js:769:14)←[39m
+←[90m    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)←[39m
+←[90m    at internal/main/run_main_module.js:17:47←[39m
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+undefined
+rock
+r&b
+disco
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>node Hoisting.js
+san jose
+seattle
+burbank
+san jose
+
+C:\Users\HP\Desktop\Axsos Academy\MREN>

@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+.wrapper{
+  min-height: 150px;
+    background-color:green;
+    margin: 15px;
+}
+.navi{
+  height: 400px;
+    width: 250px;
+    background-color: blue;
+    display: inline-block;
+    vertical-align: top;
+}
+.main{
+    min-height: 400px;
+    margin-left: 20px;
+    width: 800px;
+    background-color: red;
+    display: inline-block;
+    margin-right: 15px;
+}
+.sub{
+  min-height: 250px;
+    width: 200px;
+    background-color: yellow;
+    display:inline-block;
+    margin: 10px;
+}
+.adv{
+  min-height: 120px;
+    width: 660px;
+    background-color: purple;
+    margin: 10px;
+}

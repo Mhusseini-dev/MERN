@@ -1,0 +1,127 @@
+> use my_first_db
+switched to db my_first_db
+> db.createCollection("student")
+{ "ok" : 1 }
+> db.students.insert({name:"mohamad", home_state: "jerusalem", lucky_number: 6, birthday: {month:6, day: 15, year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("601ee7ca953402b0e9e7642d"), "name" : "mohamad", "home_state" : "jerusalem", "lucky_number" : 6, "birthday" : { "month" : 6, "day" : 15, "year" : 1997 } }
+> db.students.insert({name:"ghada", home_state: "jerusalem", lucky_number: 12, birthday: {month:12, day: 29, year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"rahaf", home_state: "ramallah", lucky_number: 5, birthday: {month:5 day: 5, year:1995}})
+2021-02-06T21:03:46.449+0200 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:94
+
+> db.students.insert({name:"mahmoud", home_state: "jenin", lucky_number: 4, birthday: {month:5 day: 5, year:1998}})
+2021-02-06T21:04:08.895+0200 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:93
+
+> db.students.insert({name:"mahmoud", home_state: "jenin", lucky_number: 4, birthday: {month: 5 day: 5, year:1998}})
+2021-02-06T21:04:29.262+0200 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:94
+
+> db.students.insert({name:"mahmoud", home_state: "jenin", lucky_number: 5, birthday: {month:5 day: 5, year:1998}})
+2021-02-06T21:05:10.928+0200 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:93
+
+> db.students.insert({name:"mahmoud", home_state: "jenin", lucky_number: 12, birthday: {month:12, day: 29, year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"donbok", home_state: "nablus", lucky_number: 12, birthday: {month:12, day: 29, year:1996}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("601ee7ca953402b0e9e7642d"),
+        "name" : "mohamad",
+        "home_state" : "jerusalem",
+        "lucky_number" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 15,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("601ee7f1953402b0e9e7642e"),
+        "name" : "ghada",
+        "home_state" : "jerusalem",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 29,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("601ee880953402b0e9e7642f"),
+        "name" : "mahmoud",
+        "home_state" : "jenin",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 29,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("601ee897953402b0e9e76430"),
+        "name" : "donbok",
+        "home_state" : "nablus",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 29,
+                "year" : 1996
+        }
+}
+> db.students.insert({name:"tala", home_state: "ramallah", lucky_number: 12, birthday: {month:12, day: 29, year:1995}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find({lucky_number :{$gt:3}})
+{ "_id" : ObjectId("601ee7ca953402b0e9e7642d"), "name" : "mohamad", "home_state" : "jerusalem", "lucky_number" : 6, "birthday" : { "month" : 6, "day" : 15, "year" : 1997 } }
+{ "_id" : ObjectId("601ee7f1953402b0e9e7642e"), "name" : "ghada", "home_state" : "jerusalem", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1997 } }
+{ "_id" : ObjectId("601ee880953402b0e9e7642f"), "name" : "mahmoud", "home_state" : "jenin", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1997 } }
+{ "_id" : ObjectId("601ee897953402b0e9e76430"), "name" : "donbok", "home_state" : "nablus", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1996 } }
+{ "_id" : ObjectId("601ee8bd953402b0e9e76431"), "name" : "tala", "home_state" : "ramallah", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1995 } }
+> db.students.find({home_state: "jerusalem})
+2021-02-06T21:10:54.516+0200 E QUERY    [thread1] SyntaxError: unterminated string literal @(shell):1:30
+
+> db.students.find({home_state: "jerusalem"})
+{ "_id" : ObjectId("601ee7ca953402b0e9e7642d"), "name" : "mohamad", "home_state" : "jerusalem", "lucky_number" : 6, "birthday" : { "month" : 6, "day" : 15, "year" : 1997 } }
+{ "_id" : ObjectId("601ee7f1953402b0e9e7642e"), "name" : "ghada", "home_state" : "jerusalem", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1997 } }
+> db.students.find({lucky_number :{$gte:10}})
+{ "_id" : ObjectId("601ee7f1953402b0e9e7642e"), "name" : "ghada", "home_state" : "jerusalem", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1997 } }
+{ "_id" : ObjectId("601ee880953402b0e9e7642f"), "name" : "mahmoud", "home_state" : "jenin", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1997 } }
+{ "_id" : ObjectId("601ee897953402b0e9e76430"), "name" : "donbok", "home_state" : "nablus", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1996 } }
+{ "_id" : ObjectId("601ee8bd953402b0e9e76431"), "name" : "tala", "home_state" : "ramallah", "lucky_number" : 12, "birthday" : { "month" : 12, "day" : 29, "year" : 1995 } }
+> db.students.updateNany({},{$set:{interests:["coding", "brunch", "mongoDB"]}})
+2021-02-06T21:13:11.326+0200 E QUERY    [thread1] TypeError: db.students.updateNany is not a function :
+@(shell):1:1
+
+> db.students.updateMany({},{$set:{interests:["coding", "brunch", "mongoDB"]}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.update({name:tala}, {$addToSet:{interests:"busting bad guys"}})
+2021-02-06T21:17:43.841+0200 E QUERY    [thread1] ReferenceError: tala is not defined :
+@(shell):1:21
+
+> db.students.update({name:"tala"}, {$addToSet:{interests:"busting bad guys"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"ghada"}, {$addToSet:{interests:"gumgum"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"mohamad"}, {$addToSet:{interests:"videogames"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"mohamad"}, {$addToSet:{interests:"taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"mohamad"}, {$pull:{interests:"taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.remove({home_state:"jenin"})
+WriteResult({ "nRemoved" : 1 })
+> db.students.remove({name:"ghada"})
+WriteResult({ "nRemoved" : 1 })
+> db.students.remove({lucky_number : {$gt:5}},true)
+WriteResult({ "nRemoved" : 1 })
+> db.students.updateMany({}, {$set:{number_of_belts: 0}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany({home_state:"jerusalem"},{$set:{number_of_belts:1}})
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+> db.students.updateMany({}, {$rename:{"number_of_belts":"belts_earned"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany({}, {$unset:{"lucky_number":""}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany({}, {$set:{"updated_on":Date()}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+>
